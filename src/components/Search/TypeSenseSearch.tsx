@@ -11,23 +11,12 @@ import {
 import searchClient from "../../providers/Typesense/InstantSearchAdatper";
 import { useState } from "react";
 import PropTypes from "prop-types";
+import { BoloDocument } from "../Bolo/BoloDocument";
 
 const Hit = ({ hit }) => {
   // Conditional rendering
   if (hit) {
-    return (
-      <div className="col-md d-flex align-items-end justify-content-center">
-        <h3 className="font-bold text-2xl text-blue-600 py-2"> {hit.title.replaceAll("_", " ").replace("-", " ")}</h3>
-        <p>{hit.content.trim()}</p>
-        <div className="py-3">
-          {hit.tags.map((tag, index) => (
-            <div key={index}>
-              <span className="text-red-400">{tag.tagName}:</span> {tag.tagValue.join(", ")}
-            </div>
-          ))}
-        </div>
-      </div>
-    );
+    return <BoloDocument hit={hit} />;
   } else {
     return <div />;
   }
@@ -43,8 +32,8 @@ export function TypeSenseSearch() {
 
   return (
     <div className="relative min-h-screen flex-1">
-      <h1 className="mb-4 text-4xl justify-center font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-        Bolo Documents Search ML Model
+      <h1 className="mb-4 text-4xl text-center font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-gray">
+        Bolo Documents Search
       </h1>
 
       <InstantSearch indexName="bolos" searchClient={searchClient} insights={false}>

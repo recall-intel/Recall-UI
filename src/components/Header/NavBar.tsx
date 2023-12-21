@@ -11,7 +11,7 @@ export function NavBar() {
               <a href="#" className="flex items-center py-5 px-2 text-gray-700  hover:text-gray-900">
                 <img
                   className="h-6 w-auto mr-1"
-                  src="https://d231gjotl1lh30.cloudfront.net/assets/images/recall-intel-logo.png"
+                  src="./assets/images/recall-intell-logo-870x80.png"
                   alt="Recall Intel"
                 ></img>
                 <span className="font-bold"> Recall Intel </span>
